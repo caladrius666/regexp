@@ -24,18 +24,20 @@ REGEXP_2_REPL = r'\1'
 # this is is is text   ---> this *is* text
 # this is text text    ---> this is *text*
 # this is is text text ---> this *is* *text*
-REGEXP_3 = r''
-REGEXP_3_REPL = r''
+REGEXP_3 = r'( ([a-z]+)){1}\1{1}\1?'
+REGEXP_3_REPL = r' *\2*'
 
 # one two three ---> two one three
 # dog cat wolf  ---> cat dog wolf
 # goose car rat ---> goose rat car
-REGEXP_4 = r''
-REGEXP_4_REPL = r''
+REGEXP_4 = r'\b([a-z]{3}) ([a-z]{3})( ?)'
+REGEXP_4_REPL = r'\2 \1\3'
 
 # cat dog                     ---> cat dog
 # cat dog cat                 ---> cat dog cat
 # dog cat dog cat cat         ---> dog dog
 # dog cat dog rat rat cat cat ---> dog dog rat rat
-REGEXP_5 = r''
-REGEXP_5_REPL = r''
+REGEXP_5 = r'(dog [a-z]+ dog)(.*)( [a-z]+ [a-z]+)'
+REGEXP_5_REPL = r'dog dog\2'
+
+##Done
